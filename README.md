@@ -1,7 +1,7 @@
 blJobCrawler V1.0
 ============
 
-BriLent, Inc. project
+BriLent, Inc.
 Author: Bo Yang
 
 mission description:
