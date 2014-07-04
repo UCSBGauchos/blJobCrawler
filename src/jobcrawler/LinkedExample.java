@@ -7,7 +7,10 @@ package jobcrawler;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+
 
 import org.scribe.builder.*;
 import org.scribe.builder.api.*;
@@ -17,8 +20,7 @@ import org.scribe.oauth.*;
 public class LinkedExample {
 	
 	
-	private static final String PROTECTED_RESOURCE_URL = "http://api.linkedin.com/v1/people/~/connections:(id,first-name,last-name,industry)";
-
+	private static final String PROTECTED_RESOURCE_URL = "http://api.linkedin.com/v1/people/~/connections:(first-name,last-name)";
 	
 	public static void main(String [] args){
 		OAuthService service = new ServiceBuilder()
@@ -56,7 +58,7 @@ public class LinkedExample {
 	    Response response = request.send();
 	    System.out.println(response.getBody());
 	    try {
-			FileWriter fw = new FileWriter("/Users/yangbo/Desktop/test.txt");
+			FileWriter fw = new FileWriter("/Users/yangbo/Desktop/people.xml");
 			BufferedWriter bw = new BufferedWriter(fw); 
 			bw.write(response.getBody());
 			bw.close();

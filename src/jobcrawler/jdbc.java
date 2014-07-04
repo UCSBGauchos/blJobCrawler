@@ -11,7 +11,7 @@ public class jdbc {
 		String url = "jdbc:mysql://127.0.0.1:3306/test";
 		String username = "root";
 		String password = "root";
-		String sql = "select * from people";
+		XmlParser xml = new XmlParser();
 		try {
 			//load the driver
 			Class.forName(driver).newInstance();
@@ -20,11 +20,17 @@ public class jdbc {
 			if(!con.isClosed()){
 				System.out.println("Connection is success");
 				Statement statement = con.createStatement();
-				ResultSet rs = statement.executeQuery(sql);
-				while(rs.next()){
-					System.out.println(rs.getString("firstname")+" "+rs.getString("lastname"));
+//				ResultSet rs = statement.executeQuery(sql);
+//				while(rs.next()){
+//					System.out.println(rs.getString("firstname")+" "+rs.getString("lastname"));
+//				}
+//				rs.close();
+				xml.runXmpParser();
+				for(People p: xml.peoplelist){
+					String sql = "insert into people values('"+p.firstName+"','"+p.lastName+"')";
+					System.out.println(sql);
+					statement.executeUpdate(sql);
 				}
-				rs.close();
 				con.close();
 			}else{
 				System.out.println("Connection is fail");
