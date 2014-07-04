@@ -9,7 +9,7 @@ Pull job data from your LinkedIn profile and save them to your local MySQL datab
 
 Registered Application Public API: 75u107mbpv94wy
 
-Tool used: MySQL, JAVA QAuthor scribe, dom4j XML parser and JDBC Drver
+Tools used: MySQL, JAVA QAuthor scribe, dom4j XML parser and JDBC Drver
 
 
 Demo table for people:
