@@ -1,4 +1,4 @@
-blJobCrawler 
+blJobCrawler V1.0
 ============
 
 BriLent, Inc. project
