@@ -1,5 +1,8 @@
 package jobcrawler;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import org.scribe.builder.*;
@@ -10,7 +13,7 @@ import org.scribe.oauth.*;
 public class LinkedExample {
 	
 	
-	private static final String PROTECTED_RESOURCE_URL = "http://api.linkedin.com/v1/people/~";
+	private static final String PROTECTED_RESOURCE_URL = "https://api.linkedin.com/v1/people/~?secure-urls=true";
 
 	
 	public static void main(String [] args){
@@ -47,6 +50,16 @@ public class LinkedExample {
 	    OAuthRequest request = new OAuthRequest(Verb.GET, PROTECTED_RESOURCE_URL);
 	    service.signRequest(accessToken, request);
 	    Response response = request.send();
-	    System.out.println(response.getBody());
+	    //System.out.println(response.getBody());
+	    try {
+			FileWriter fw = new FileWriter("/Users/yangbo/Desktop/test.txt");
+			BufferedWriter bw = new BufferedWriter(fw); 
+			bw.write(response.getBody());
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
