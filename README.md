@@ -1,4 +1,5 @@
-blJobCrawler
+blJobCrawler 
+Pull job description from LinkedIn job center
 ============
 
 BriLent, Inc. project
